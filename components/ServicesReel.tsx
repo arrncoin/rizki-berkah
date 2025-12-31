@@ -2,49 +2,54 @@
 import { FaShieldAlt, FaRulerCombined, FaHandshake, FaPhoneAlt } from "react-icons/fa";
 
 export default function ServicesReel() {
-  const phone = "6282334962196"; // Ganti nomor
+  const phone = "6282334962196";
   const waUrl = `https://wa.me/${phone}?text=Halo,%20saya%20mau%20konsultasi%20tentang%20Folding%20Gate.`;
 
   return (
-    <div className="relative w-full h-full bg-neutral-900 text-white overflow-hidden flex items-center justify-center">
-      {/* Background Image/Pattern yang halus */}
-       <div className="absolute inset-0 bg-[url('/images/metal-pattern.png')] bg-cover opacity-10 grayscale"></div>
-       <div className="absolute inset-0 bg-linear-to-t from-black via-black/80 to-black/60" />
+    <div className="relative w-full h-full bg-neutral-900 text-white overflow-hidden flex flex-col items-center justify-center">
+      {/* Background */}
+      <div className="absolute inset-0 bg-[url('/images/metal-pattern.png')] bg-cover opacity-10 grayscale"></div>
+      <div className="absolute inset-0 bg-linear-to-t from-black via-black/80 to-black/60" />
 
-      <div className="relative z-20 px-6 md:px-10 max-w-4xl text-center">
-        <h2 className="text-3xl md:text-5xl font-bold mb-8 text-white tracking-tight">
-          Kenapa Memilih Kami?
-        </h2>
+      {/* Kontainer Utama: Menggunakan max-h untuk mencegah konten meluap */}
+      <div className="relative z-20 w-full max-w-4xl px-6 flex flex-col justify-center h-full max-h-[90%] py-4">
+        
+        {/* Header: Ukuran teks mengecil di layar sangat pendek */}
+        <header className="mb-6 md:mb-10 text-center">
+          <h2 className="text-2xl xs:text-3xl md:text-5xl font-bold text-white tracking-tight">
+            Kenapa Memilih Kami?
+          </h2>
+        </header>
 
-        {/* Grid layanan diubah menjadi tampilan yang lebih kompak untuk satu layar */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 text-left">
+        {/* Grid: Di Mobile menggunakan tampilan baris tipis agar hemat ruang */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6 mb-8 md:mb-12 overflow-y-auto scrollbar-hide">
           <ServiceItem 
-            icon={<FaShieldAlt className="text-green-400" size={32}/>}
+            icon={<FaShieldAlt className="text-green-400" size={24}/>}
             title="Material Premium" 
-            desc="Plat besi tebal & rangka kokoh anti-karat untuk keamanan jangka panjang."
+            desc="Plat besi tebal & rangka kokoh anti-karat."
           />
           <ServiceItem 
-            icon={<FaRulerCombined className="text-green-400" size={32}/>}
+            icon={<FaRulerCombined className="text-green-400" size={24}/>}
             title="Presisi Custom" 
-            desc="Setiap unit diukur dan dibuat khusus menyesuaikan lokasi Anda."
+            desc="Diukur khusus menyesuaikan lokasi Anda."
           />
           <ServiceItem 
-            icon={<FaHandshake className="text-green-400" size={32}/>}
-            title="Terpercaya & Bergaransi" 
-            desc="Harga transparan, pengerjaan rapi, dan layanan purna jual terjamin."
+            icon={<FaHandshake className="text-green-400" size={24}/>}
+            title="Bergaransi" 
+            desc="Harga transparan dan pengerjaan rapi."
           />
         </div>
 
-        {/* Final Call to Action di halaman terakhir */}
-        <div className="flex flex-col items-center gap-4 bg-white/10 p-6 rounded-2xl backdrop-blur-md border border-white/10">
-            <p className="text-lg font-medium">Siap amankan properti Anda?</p>
+        {/* CTA: Dibuat lebih ringkas di mobile */}
+        <div className="mt-auto md:mt-0 flex flex-col items-center gap-3 bg-white/10 p-4 md:p-6 rounded-2xl backdrop-blur-md border border-white/10 text-center">
+            <p className="text-sm md:text-lg font-medium opacity-90">Siap amankan properti Anda?</p>
             <a 
-            href={waUrl}
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white text-black hover:bg-gray-200 px-8 py-3 rounded-full text-lg font-bold transition shadow-md"
+              href={waUrl}
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-white text-black hover:bg-gray-200 px-6 py-2.5 md:px-8 md:py-3 rounded-full text-base md:text-lg font-bold transition active:scale-95 shadow-md"
             >
-                <FaPhoneAlt /> Konsultasi Gratis
+                <FaPhoneAlt size={16} /> Konsultasi Gratis
             </a>
         </div>
       </div>
@@ -52,13 +57,16 @@ export default function ServicesReel() {
   );
 }
 
-// Sub-komponen kecil untuk item service
 function ServiceItem({ title, desc, icon }: { title: string; desc: string; icon: React.ReactNode }) {
   return (
-    <div className="bg-black/40 backdrop-blur-sm border border-white/5 rounded-xl p-5 hover:bg-white/5 transition">
-      <div className="mb-3">{icon}</div>
-      <h3 className="font-bold text-xl mb-2 text-white">{title}</h3>
-      <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
+    // Di mobile: Flex horizontal (row) untuk menghemat ruang vertikal
+    // Di desktop: Kembali ke tumpukan vertikal
+    <div className="bg-black/40 backdrop-blur-sm border border-white/5 rounded-xl p-3 md:p-5 flex md:flex-col items-center md:items-start gap-4 md:gap-0 hover:bg-white/5 transition">
+      <div className="md:mb-3 shrink-0">{icon}</div>
+      <div>
+        <h3 className="font-bold text-base md:text-xl text-white">{title}</h3>
+        <p className="text-gray-400 text-xs md:text-sm leading-tight md:leading-relaxed">{desc}</p>
+      </div>
     </div>
   );
 }
