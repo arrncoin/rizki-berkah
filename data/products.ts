@@ -12,7 +12,7 @@ export const products = [
   {
     id: 1,
     name: "Folding Gate Besi",
-    price: "Rp 1.200.000 / meter",
+    price: "Rp 450.00 / meter",
     description: "Folding gate kuat, rapi, dan aman untuk toko & ruko.",
     media: [
       "/videos/video1.webm",
@@ -21,7 +21,7 @@ export const products = [
       "/images/4.jpg"
     ],
     message:
-      "Halo Riski Berkah Folding Gate, saya ingin pesan Folding Gate Besi"
+      "Halo Rizki Berkah Folding Gate, saya ingin pesan Folding Gate Besi"
   },
   {
     id: 2,
@@ -33,6 +33,6 @@ export const products = [
       "/images/5.jpg"
     ],
     message:
-      "Halo Riski Berkah Folding Gate, saya ingin pesan Pintu Besi Minimalis"
+      "Halo Rizki Berkah Folding Gate, saya ingin pesan Pintu Besi Minimalis"
   }
 ];
