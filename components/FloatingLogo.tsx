@@ -13,7 +13,7 @@ export default function FloatingLogo() {
           alt="Rizki Berkah Logo"
           width={180}
           height={40}
-          className="w-35 md:w-45 h-auto drop-shadow-lg"
+          className="w-40 md:w-50 h-auto drop-shadow-lg"
           priority
         />
       </Link>
