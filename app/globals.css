@@ -1,26 +1,47 @@
 @import "tailwindcss";
 
+/* 1. Pengaturan Dasar untuk Fitur Reel/Snap Scroll */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #000; /* Dasar hitam untuk transisi smooth antar video */
+  overscroll-behavior-y: none; /* Mencegah tarikan 'bounce' di iOS yang merusak snap */
+  overflow: hidden; /* Mencegah scroll ganda pada level body */
+}
+
+/* 2. Definisi Variabel & Tema */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000; /* Diubah ke hitam agar konsisten dengan tema Reels */
+  --foreground: #ededed;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* 3. Reset Body */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 4. Utility untuk Menyembunyikan Scrollbar (Penting untuk tampilan Reels) */
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* 5. Efek Tambahan agar Teks Lebih Profesional */
+.text-shadow-sm {
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }

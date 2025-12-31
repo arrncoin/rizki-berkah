@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1138" height="225" viewBox="0 0 1138 225">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 125px;
+        fill: #ffffffff;
+        font-family: Montserrat;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .cls-2 {
+        font-size: 75px;
+        font-weight: 500;
+      }
+    </style>
+  </defs>
+  <text id="RIZKI_BERKAH_FOLDING_GATE" data-name="RIZKI BERKAH FOLDING GATE" class="cls-1" x="20.84" y="128.244">RIZKI BERKAH<tspan class="cls-2" x="20.84" dy="90">FOLDING GATE</tspan></text>
+</svg>
