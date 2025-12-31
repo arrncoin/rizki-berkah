@@ -12,7 +12,7 @@ export const products = [
   {
     id: 1,
     name: "Folding Gate Besi",
-    price: "Rp 450.00 / meter",
+    price: "Rp 450.000 / meter",
     description: "Folding gate kuat, rapi, dan aman untuk toko & ruko.",
     media: [
       "/videos/video1.webm",
